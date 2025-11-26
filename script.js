@@ -2,10 +2,12 @@
 const todoInput = document.querySelector(".todo-input");
 const addBtn = document.querySelector(".add-btn");
 const todoList = document.querySelector(".todo-list");
+const todoListContainer = document.querySelector(".todo-list-container");
 
 // Getting saved todos from Local storage
 const savedTodos = localStorage.getItem("todos");
 const todos = savedTodos ? JSON.parse(savedTodos) : [];
+
 
 // Saving todos to local storage
 function saveTodos() {
@@ -36,6 +38,7 @@ function createToDoItemNode(todo, index) {
     if (isTodoCompleted) {
       todoText.style.textDecoration = "line-through";
     }
+    renderToDoList();
     saveTodos();
   });
 
